@@ -1,1 +1,477 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neri Suplementos | Cupom NERI50</title>
+  <meta name="description" content="Compre suplementos Soldiers Nutrition com 5% de desconto usando o cupom NERI50. Whey, Creatina, Pré-treino e muito mais.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #C8102E;
+      --brand-dark: #8B0B20;
+      --accent: #FFD100;
+      --bg: #F4F1ED;
+      --card: #ffffff;
+      --text: #1A1A1A;
+      --muted: #6B6560;
+      --border: #E2DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--brand);
+      padding: 2.5rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(0,0,0,.04) 20px,
+        rgba(0,0,0,.04) 40px
+      );
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      letter-spacing: 6px;
+      color: #fff;
+      line-height: 1;
+      position: relative;
+    }
+    .logo span { color: var(--accent); }
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-top: 6px;
+      position: relative;
+    }
+
+    /* ── CUPOM STRIP ── */
+    .cupom-strip {
+      background: var(--brand-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 18px 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cupom-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 2px;
+    }
+    .cupom-code {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      letter-spacing: 10px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .cupom-info {
+      font-size: 14px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.6;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: var(--brand-dark);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: .5px;
+      transition: all .2s;
+    }
+    .copy-btn:hover { background: #ffe033; transform: scale(1.03); }
+    .copy-btn.ok { background: #2ecc71; color: #fff; }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      color: var(--brand);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── FILTERS ── */
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .fbtn {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all .18s;
+    }
+    .fbtn:hover, .fbtn.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .22s, box-shadow .22s;
+      animation: fadeUp .4s ease both;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.11);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-img {
+      width: 100%;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: #F0EDE8;
+    }
+    .card-body {
+      padding: 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+    .card-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .card-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 14px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .price-old {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+    .price-new {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    .badge-off {
+      background: var(--accent);
+      color: var(--brand-dark);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .buy-btn {
+      display: block;
+      text-align: center;
+      background: var(--brand);
+      color: #fff;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      transition: background .2s, transform .15s;
+      letter-spacing: .3px;
+    }
+    .buy-btn:hover {
+      background: var(--brand-dark);
+      transform: scale(1.02);
+    }
+
+    /* ── HOW TO ── */
+    .how-to {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .how-to h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: var(--brand);
+      margin-bottom: 1.25rem;
+    }
+    .steps {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .step {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-top: 5px;
+    }
+    .step p strong { color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brand-dark);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: rgba(255,255,255,.45);
+      font-size: 12px;
+      letter-spacing: .5px;
+    }
+    footer span { color: var(--accent); font-weight: 600; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 520px) {
+      .cupom-strip { gap: 14px; text-align: center; }
+      .cupom-info { width: 100%; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">NERI <span>SUPLEMENTOS</span></div>
+  <div class="tagline">Soldiers Nutrition com desconto exclusivo</div>
+</header>
+
+<div class="cupom-strip">
+  <div>
+    <div class="cupom-label">Cupom exclusivo</div>
+    <div class="cupom-code">NERI50</div>
+  </div>
+  <div class="cupom-info">
+    5% de desconto em <strong style="color:#fff">todos os produtos</strong><br>
+    da loja Soldiers Nutrition
+  </div>
+  <button class="copy-btn" id="cbtn" onclick="copyCupom()">📋 Copiar cupom</button>
+</div>
+
+<div class="container">
+
+  <div class="section-title">Mais Vendidos</div>
+
+  <div class="filters">
+    <button class="fbtn active" onclick="filter('all', this)">Todos</button>
+    <button class="fbtn" onclick="filter('whey', this)">Whey Protein</button>
+    <button class="fbtn" onclick="filter('creatina', this)">Creatina</button>
+    <button class="fbtn" onclick="filter('pretreino', this)">Pré-treino</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="how-to">
+    <h2>Como usar o cupom?</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <p>Clique em <strong>"Comprar agora"</strong> no produto que você escolheu.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p>Adicione o produto ao carrinho no site da <strong>Soldiers Nutrition</strong>.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p>No carrinho, localize o campo <strong>"Cupom de desconto"</strong> e digite <strong>NERI50</strong>.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <p>Clique em <strong>"Usar cupom"</strong> e finalize sua compra com <strong>5% off</strong>!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Vitrine criada por <span>Neri</span> &bull; Produtos vendidos e entregues pela Soldiers Nutrition &bull; Cupom: <span>NERI50</span>
+</footer>
+
+<script>
+
+  const products = [
+    {
+      cat: 'whey', emoji: '🥛',
+      nome: 'Whey Protein Elite 80%',
+      desc: '80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade.',
+      preco: 199.90,
+      link: 'https://soldiersnutrition.com.br/collections/elite-whey-80'
+    },
+    {
+      cat: 'creatina', emoji: '💪',
+      nome: 'Creatina Monohidratada 100% Pura Importada 1kg',
+      desc: 'A mais vendida da marca. Pureza aprovada em laudos independentes. Aumenta força, explosão e massa magra.',
+      preco: 139.90,
+      link: 'https://soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg'
+    },
+    {
+      cat: 'pretreino', emoji: '⚡',
+      nome: 'Pré-Treino Top',
+      desc: 'Cafeína + beta-alanina + arginina. Energia, foco e pump intenso para treinos de alto rendimento.',
+      preco: 129.90,
+      link: 'https://soldiersnutrition.com.br/collections/top-pre-treino'
+    },
+  ];
+
+  const catNames = { whey: 'Whey Protein', creatina: 'Creatina', pretreino: 'Pré-treino' };
+  let current = 'all';
+
+  function render() {
+    const list = current === 'all' ? products : products.filter(p => p.cat === current);
+    document.getElementById('grid').innerHTML = list.map((p, i) => {
+      const dp = (p.preco * 0.95).toFixed(2).replace('.', ',');
+      const op = p.preco.toFixed(2).replace('.', ',');
+      return `
+        <div class="card" style="animation-delay:${i * 0.06}s">
+          <div class="card-img">${p.emoji}</div>
+          <div class="card-body">
+            <div class="cat-badge">${catNames[p.cat]}</div>
+            <div class="card-name">${p.nome}</div>
+            <div class="card-desc">${p.desc}</div>
+            <div class="price-row">
+              <span class="price-old">R$ ${op}</span>
+              <span class="price-new">R$ ${dp}</span>
+              <span class="badge-off">-5%</span>
+            </div>
+            <a class="buy-btn" href="${p.link}" target="_blank" rel="noopener">
+              Comprar agora →
+            </a>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function filter(cat, el) {
+    current = cat;
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    render();
+  }
+
+  function copyCupom() {
+    navigator.clipboard.writeText('NERI50').catch(() => {});
+    const btn = document.getElementById('cbtn');
+    btn.textContent = '✓ Copiado!';
+    btn.classList.add('ok');
+    setTimeout(() => {
+      btn.textContent = '📋 Copiar cupom';
+      btn.classList.remove('ok');
+    }, 2500);
+  }
+
+  render();
+</script>
+
+</body>
+</html>
