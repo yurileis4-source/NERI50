@@ -8,62 +8,137 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --brand: #C8102E; --brand-dark: #8B0B20; --accent: #FFD100; --bg: #F4F1ED; --card: #fff; --text: #1A1A1A; --muted: #6B6560; --border: #E2DDD8; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
-    header { background: var(--brand); padding: 2.5rem 1rem 2rem; text-align: center; position: relative; overflow: hidden; }
-    header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,.04) 20px, rgba(0,0,0,.04) 40px); }
-    .logo { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem,8vw,4.5rem); letter-spacing: 6px; color: #fff; line-height: 1; position: relative; }
+    :root { 
+      --brand: #C8102E; 
+      --brand-dark: #8B0B20; 
+      --accent: #FFD100; 
+      --bg: #F8F6F3; 
+      --card: #ffffff; 
+      --text: #1A1A1A; 
+      --muted: #7A726C; 
+      --border: #E6E1DC; 
+    }
+    
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    
+    header { background: var(--brand); padding: 3rem 1rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,.03) 20px, rgba(0,0,0,.03) 40px); }
+    
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 4.8rem); letter-spacing: 5px; color: #fff; line-height: 1; position: relative; }
     .logo span { color: var(--accent); }
-    .tagline { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 6px; position: relative; }
-    .cupom-strip { background: var(--brand-dark); display: flex; align-items: center; justify-content: center; gap: 24px; padding: 18px 1.5rem; flex-wrap: wrap; }
-    .cupom-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 2px; }
-    .cupom-code { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem,6vw,2.8rem); letter-spacing: 10px; color: var(--accent); line-height: 1; }
-    .cupom-info { font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.6; }
-    .copy-btn { background: var(--accent); color: var(--brand-dark); border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .2s; }
-    .copy-btn:hover { background: #ffe033; transform: scale(1.03); }
-    .copy-btn.ok { background: #2ecc71; color: #fff; }
-    .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 3px; color: var(--brand); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; }
+    .tagline { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: 8px; position: relative; font-weight: 500; }
+    
+    .cupom-strip { background: var(--brand-dark); display: flex; align-items: center; justify-content: center; gap: 32px; padding: 20px 1.5rem; flex-wrap: wrap; box-shadow: inset 0 4px 10px rgba(0,0,0,0.15); }
+    .cupom-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 4px; font-weight: 600; }
+    .cupom-code { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing: 8px; color: var(--accent); line-height: 1; }
+    .cupom-info { font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.5; }
+    
+    .copy-btn { background: var(--accent); color: var(--brand-dark); border: none; padding: 14px 32px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .2s ease; box-shadow: 0 4px 12px rgba(255, 209, 0, 0.2); }
+    .copy-btn:hover { background: #ffe033; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 209, 0, 0.3); }
+    .copy-btn:active { transform: translateY(0); }
+    .copy-btn.ok { background: #2ecc71; color: #fff; box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3); }
+    
+    .container { max-width: 1040px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brand); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 16px; }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .filters { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .fbtn { background: var(--card); border: 1.5px solid var(--border); color: var(--muted); padding: 8px 20px; border-radius: 24px; font-size: 14px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all .18s; }
-    .fbtn:hover, .fbtn.active { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 600; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; }
-    .card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; transition: transform .22s, box-shadow .22s; animation: fadeUp .4s ease both; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,.11); }
-    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-    .card-img { width: 100%; height: 210px; background: #F0EDE8; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
-    .card:hover .card-img img { transform: scale(1.05); }
-    .card-img .emoji-fallback { font-size: 4.5rem; }
-    .card-body { padding: 1.1rem; flex: 1; display: flex; flex-direction: column; }
-    .cat-badge { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; color: var(--brand); margin-bottom: 6px; }
-    .card-name { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
-    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.55; flex: 1; margin-bottom: 14px; }
-    .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-    .price-old { font-size: 13px; color: var(--muted); text-decoration: line-through; }
-    .price-new { font-size: 22px; font-weight: 700; color: var(--brand); }
-    .badge-off { background: var(--accent); color: var(--brand-dark); font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px; }
-    .buy-btn { display: block; text-align: center; background: var(--brand); color: #fff; padding: 13px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: background .2s, transform .15s; }
-    .buy-btn:hover { background: var(--brand-dark); transform: scale(1.02); }
-    .video-section { margin-top: 3rem; }
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .video-card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
-    .video-thumb { position: relative; width: 100%; padding-top: 56.25%; }
+    
+    /* FILTROS COM FOTOS PROFISSIONAIS */
+    .filters { display: flex; gap: 12px; margin-bottom: 2rem; flex-wrap: wrap; }
+    
+    .fbtn { 
+      background: var(--card); 
+      border: 1.5px solid var(--border); 
+      color: var(--muted); 
+      padding: 8px 20px 8px 14px; /* Ajuste do espaçamento interno */
+      border-radius: 30px; 
+      font-size: 14px; 
+      font-weight: 600; 
+      font-family: 'DM Sans', sans-serif; 
+      cursor: pointer; 
+      transition: all .2s ease; 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px; /* Espaço entre a foto e o texto */
+    }
+    
+    /* Criando a bolinha da foto antes do texto */
+    .fbtn::before {
+      content: '';
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all .2s ease;
+    }
+    
+    /* Links das fotos de cada categoria (Você pode trocar as URLs abaixo pelas que quiser) */
+    .fbtn-all::before { background-image: url('https://img.icons8.com/color/96/grid.png'); }
+    .fbtn-whey::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3050/3050047.png'); }
+    .fbtn-creatina::before { background-image: url('https://cdn-icons-png.flaticon.com/512/2635/2635594.png'); }
+    .fbtn-pretreino::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3201/3201170.png'); }
+    
+    .fbtn:hover { border-color: var(--brand); color: var(--brand); }
+    .fbtn.active { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 4px 12px rgba(200, 16, 46, 0.15); }
+    
+    /* Inverte a bordinha da imagem quando o botão estiver ativo para destacar */
+    .fbtn.active::before { border-color: rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.2); }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; }
+    
+    .card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; transition: transform .25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .25s cubic-bezier(0.4, 0, 0.2, 1), border-color .25s; animation: fadeUp .4s ease both; }
+    .card:hover { transform: translateY(-6px); border-color: rgba(200,16,46,0.2); box-shadow: 0 16px 36px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.02); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    
+    .card-img { width: 100%; height: 240px; background: #FAF9F6; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #f2eee9; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .card-img .emoji-fallback { font-size: 4.5rem; opacity: 0.8; }
+    
+    .card-body { padding: 1.3rem; flex: 1; display: flex; flex-direction: column; }
+    .cat-badge { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+    .card-name { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; color: var(--text); }
+    .card-desc { font-size: 13.5px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 18px; }
+    
+    .price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .price-old { font-size: 14px; color: #9A928C; text-decoration: line-through; }
+    .price-new { font-size: 24px; font-weight: 700; color: var(--brand); letter-spacing: -0.5px; }
+    .badge-off { background: var(--accent); color: var(--brand-dark); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; box-shadow: 0 2px 6px rgba(255, 209, 0, 0.15); }
+    
+    .buy-btn { display: block; text-align: center; background: var(--brand); color: #fff; padding: 14px; border-radius: 12px; font-size: 14.5px; font-weight: 600; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: all .2s ease; box-shadow: 0 4px 12px rgba(200, 16, 46, 0.15); }
+    .buy-btn:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(200, 16, 46, 0.25); }
+    
+    .video-section { margin-top: 4rem; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .video-card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.02); }
+    .video-thumb { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
     .video-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
-    .video-info { padding: 1rem 1.1rem; }
-    .video-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
-    .video-sub { font-size: 12px; color: var(--muted); }
-    .how-to { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem 1.5rem; margin-top: 2.5rem; }
-    .how-to h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; color: var(--brand); margin-bottom: 1.25rem; }
-    .steps { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .step { flex: 1; min-width: 160px; display: flex; gap: 12px; align-items: flex-start; }
-    .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .step p { font-size: 13px; color: var(--muted); line-height: 1.6; padding-top: 5px; }
+    .video-info { padding: 1.2rem; }
+    .video-title { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+    .video-sub { font-size: 12.5px; color: var(--muted); }
+    
+    .how-to { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2rem; margin-top: 3.5rem; box-shadow: 0 2px 8px rgba(0,0,0,.02); }
+    .how-to h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; color: var(--brand); margin-bottom: 1.5rem; }
+    .steps { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .step { flex: 1; min-width: 200px; display: flex; gap: 14px; align-items: flex-start; }
+    .step-num { width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 3px 8px rgba(200, 16, 46, 0.2); }
+    .step p { font-size: 13.5px; color: var(--muted); line-height: 1.6; padding-top: 4px; }
     .step p strong { color: var(--text); }
-    footer { background: var(--brand-dark); text-align: center; padding: 1.5rem; color: rgba(255,255,255,.45); font-size: 12px; }
+    
+    footer { background: var(--brand-dark); text-align: center; padding: 2rem 1rem; color: rgba(255,255,255,.5); font-size: 13px; line-height: 1.6; border-top: 4px solid var(--brand); }
     footer span { color: var(--accent); font-weight: 600; }
-    @media(max-width:520px){ .grid{ grid-template-columns:1fr 1fr; gap:12px; } .card-img{ height:140px; } }
+    
+    @media(max-width: 640px){
+      .grid { grid-template-columns: 1fr; gap: 20px; }
+      .card-img { height: 260px; }
+      .container { padding: 2rem 1rem 4rem; }
+      .cupom-strip { gap: 16px; text-align: center; padding: 24px 1rem; }
+      .copy-btn { width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -74,7 +149,7 @@
 </header>
 
 <div class="cupom-strip">
-  <div>
+  <div style="text-align: center;">
     <div class="cupom-label">Cupom exclusivo</div>
     <div class="cupom-code">NERI50</div>
   </div>
@@ -86,10 +161,10 @@
 
   <div class="section-title">Mais Vendidos</div>
   <div class="filters">
-    <button class="fbtn active" onclick="filter('all',this)">Todos</button>
-    <button class="fbtn" onclick="filter('whey',this)">Whey Protein</button>
-    <button class="fbtn" onclick="filter('creatina',this)">Creatina</button>
-    <button class="fbtn" onclick="filter('pretreino',this)">Pré-treino</button>
+    <button class="fbtn fbtn-all active" onclick="filter('all',this)">Todos</button>
+    <button class="fbtn fbtn-whey" onclick="filter('whey',this)">Whey Protein</button>
+    <button class="fbtn fbtn-creatina" onclick="filter('creatina',this)">Creatina</button>
+    <button class="fbtn fbtn-pretreino" onclick="filter('pretreino',this)">Pré-treino</button>
   </div>
   <div class="grid" id="grid"></div>
 
@@ -144,7 +219,7 @@
 
 <script>
 const products = [
-  { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado.', preco: 270.00, precoDesconto: 250.00, badge: '-7%', link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
+  { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado.', preco: 270.00, precoDesconto: 250.00, link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
   { cat:'creatina', nome:'Creatina Monohidratada 100% Pura 1kg', desc:'A mais vendida da marca. Pureza aprovada em laudos independentes. Aumenta força, explosão e massa magra.', preco:139.90, link:'https://www.soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/CreatinaMonohidratada1kg_600x.jpg', fallback:'💪' },
   { cat:'pretreino', nome:'Pré-Treino Evolution Top', desc:'Cafeína + beta-alanina + arginina. Energia, foco e pump intenso para treinos de alto rendimento.', preco:129.90, link:'https://www.soldiersnutrition.com.br/collections/top-pre-treino?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/Pre-TreinoEvolution-Melancia-300g_600x.jpg', fallback:'⚡' },
 ];
@@ -154,9 +229,10 @@ let current = 'all';
 function render() {
   const list = current==='all' ? products : products.filter(p=>p.cat===current);
   document.getElementById('grid').innerHTML = list.map((p,i) => {
-    // Se existir precoDesconto manual ele usa, senão calcula os 5% automaticamente
     const valorFinal = p.precoDesconto ? p.precoDesconto : (p.preco * 0.95);
-    const txtBadge = p.badge ? p.badge : '-5%';
+    
+    const porcentagemDesconto = Math.round(((p.preco - valorFinal) / p.preco) * 100);
+    const txtBadge = `-${porcentagemDesconto}%`;
     
     const dp = valorFinal.toFixed(2).replace('.',',');
     const op = p.preco.toFixed(2).replace('.',',');
