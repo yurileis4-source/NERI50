@@ -41,7 +41,7 @@
     .copy-btn.ok { background: #2ecc71; color: #fff; box-shadow: 0 4px 14px rgba(46, 204, 113, 0.3); }
     
     /* GATILHO DE ESCASSEZ/URGÊNCIA */
-    .urgency-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 8px 1rem; text-align: center; font-size: 13px; font-weight: 600; color: var(--brand); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .urgency-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 10px 1rem; text-align: center; font-size: 13.5px; font-weight: 600; color: var(--brand); display: flex; align-items: center; justify-content: center; gap: 8px; }
     .urgency-bar span { display: inline-block; width: 8px; height: 8px; background: #2ecc71; border-radius: 50%; animation: pulse 1.5s infinite; }
     @keyframes pulse { 0% { transform: scale(0.9); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.4; } 100% { transform: scale(0.9); opacity: 1; } }
 
@@ -50,7 +50,7 @@
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: 3px; color: var(--brand); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 16px; }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     
-    /* FILTROS ESTILO NAVEGAÇÃO APP */
+    /* FILTROS OTIMIZADOS COM ICONES RESISTENTES */
     .filters { display: flex; gap: 12px; margin-bottom: 2.5rem; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
     .filters::-webkit-scrollbar { display: none; }
     
@@ -72,29 +72,31 @@
     }
     
     .fbtn::before {
-      content: '';
-      width: 24px;
-      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      background-size: cover;
-      background-position: center;
-      display: inline-block;
+      background: #F0EDE8;
+      font-size: 14px;
       border: 1px solid rgba(0,0,0,0.05);
+      transition: all .2s ease;
     }
-    .fbtn-all::before { background-image: url('https://img.icons8.com/color/96/grid.png'); }
-    .fbtn-whey::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3050/3050047.png'); }
-    .fbtn-creatina::before { background-image: url('https://cdn-icons-png.flaticon.com/512/2635/2635594.png'); }
-    .fbtn-pretreino::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3201/3201170.png'); }
+    .fbtn-all::before { content: '📊'; background: #E8F0FE; }
+    .fbtn-whey::before { content: '🥛'; background: #FFEFE6; }
+    .fbtn-creatina::before { content: '💪'; background: #E6F9F0; }
+    .fbtn-pretreino::before { content: '⚡'; background: #FFFDE6; }
     
     .fbtn:hover { border-color: var(--brand); color: var(--brand); }
     .fbtn.active { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 4px 14px rgba(200, 16, 46, 0.2); }
-    .fbtn.active::before { border-color: rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.2); }
+    .fbtn.active::before { background: rgba(255,255,255,0.2) !important; border-color: rgba(255,255,255,0.3); }
     
     /* GRID OTIMIZADO */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
     
     /* CARDS ESTILO VITRINE PREMIUM */
-    .card { background: var(--card); border-radius: 20px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color .3s; animation: fadeUp .5s cubic-bezier(0.25, 0.8, 0.25, 1) both; }
+    .card { background: var(--card); border-radius: 20px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color .3s; animation: fadeUp .5s cubic-bezier(0.25, 0.8, 0.25, 1) both; position: relative; }
     .card:hover { transform: translateY(-8px); border-color: rgba(200,16,46,0.15); box-shadow: 0 20px 40px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.02); }
     @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
     
@@ -103,6 +105,9 @@
     .card:hover .card-img img { transform: scale(1.04); }
     .card-img .emoji-fallback { font-size: 5rem; opacity: 0.85; }
     
+    /* TAG DE DESTAQUE INTERNA */
+    .featured-tag { position: absolute; top: 12px; left: 12px; background: #2ecc71; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(46,204,113,0.2); z-index: 2; }
+
     .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .cat-badge { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
     .card-name { font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; color: var(--text); }
@@ -230,9 +235,9 @@
 
 <script>
 const products = [
-  { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado pelo laboratório.', preco: 270.00, precoDesconto: 250.00, link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
-  { cat:'creatina', nome:'Creatina Monohidratada 100% Pura 1kg', desc:'A mais vendida do mercado nacional. Pureza insuperável em laudos independentes. Aumenta força explosiva e volume muscular de forma limpa.', preco: 110.00, precoDesconto: 80.00, link:'https://www.soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/CreatinaMonohidratada1kg_600x.jpg', fallback:'💪' },
-  { cat:'pretreino', nome:'Pré-Treino Evolution Top', desc:'Fórmula ultra concentrada com Cafeína + beta-alanina + arginina. Foco mental blindado e pump vascular insano do início ao fim.', preco: 79.90, precoDesconto: 55.00, link:'https://www.soldiersnutrition.com.br/collections/top-pre-treino?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/Pre-TreinoEvolution-Melancia-300g_600x.jpg', fallback:'⚡' },
+  { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado pelo laboratório.', preco: 270.00, precoDesconto: 250.00, tag: 'Melhor Custo Benefício', link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
+  { cat:'creatina', nome:'Creatina Monohidratada 100% Pura 1kg', desc:'A mais vendida do mercado nacional. Pureza insuperável em laudos independentes. Aumenta força explosiva e volume muscular de forma limpa.', preco: 110.00, precoDesconto: 80.00, tag: 'Campeão de Vendas', link:'https://www.soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/CreatinaMonohidratada1kg_600x.jpg', fallback:'💪' },
+  { cat:'pretreino', nome:'Pré-Treino Evolution Top', desc:'Fórmula ultra concentrada com Cafeína + beta-alanina + arginina. Foco mental blindado e pump vascular insano do início ao fim.', preco: 79.90, precoDesconto: 55.00, tag: 'Energia Máxima', link:'https://www.soldiersnutrition.com.br/collections/top-pre-treino?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/Pre-TreinoEvolution-Melancia-300g_600x.jpg', fallback:'⚡' },
 ];
 const catNames = { whey:'Whey Protein', creatina:'Creatina', pretreino:'Pré-treino' };
 let current = 'all';
@@ -245,7 +250,12 @@ function render() {
     
     const dp = valorFinal.toFixed(2).replace('.',',');
     const op = p.preco.toFixed(2).replace('.',',');
+    
+    // Cria a tag de destaque se ela existir no produto
+    const tagHtml = p.tag ? `<div class="featured-tag">${p.tag}</div>` : '';
+    
     return `<div class="card" style="animation-delay:${i*.06}s">
+      ${tagHtml}
       <div class="card-img">
         <img src="${p.img}" alt="${p.nome}" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\\'emoji-fallback\\'>${p.fallback}</span>'">
       </div>
