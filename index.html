@@ -144,7 +144,7 @@
 
 <script>
 const products = [
-  { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado.', preco:199.90, link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
+  { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado.', preco: 270.00, precoDesconto: 250.00, badge: '-7%', link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
   { cat:'creatina', nome:'Creatina Monohidratada 100% Pura 1kg', desc:'A mais vendida da marca. Pureza aprovada em laudos independentes. Aumenta força, explosão e massa magra.', preco:139.90, link:'https://www.soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/CreatinaMonohidratada1kg_600x.jpg', fallback:'💪' },
   { cat:'pretreino', nome:'Pré-Treino Evolution Top', desc:'Cafeína + beta-alanina + arginina. Energia, foco e pump intenso para treinos de alto rendimento.', preco:129.90, link:'https://www.soldiersnutrition.com.br/collections/top-pre-treino?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/Pre-TreinoEvolution-Melancia-300g_600x.jpg', fallback:'⚡' },
 ];
@@ -154,7 +154,11 @@ let current = 'all';
 function render() {
   const list = current==='all' ? products : products.filter(p=>p.cat===current);
   document.getElementById('grid').innerHTML = list.map((p,i) => {
-    const dp = (p.preco*0.95).toFixed(2).replace('.',',');
+    // Se existir precoDesconto manual ele usa, senão calcula os 5% automaticamente
+    const valorFinal = p.precoDesconto ? p.precoDesconto : (p.preco * 0.95);
+    const txtBadge = p.badge ? p.badge : '-5%';
+    
+    const dp = valorFinal.toFixed(2).replace('.',',');
     const op = p.preco.toFixed(2).replace('.',',');
     return `<div class="card" style="animation-delay:${i*.08}s">
       <div class="card-img">
@@ -167,7 +171,7 @@ function render() {
         <div class="price-row">
           <span class="price-old">R$ ${op}</span>
           <span class="price-new">R$ ${dp}</span>
-          <span class="badge-off">-5%</span>
+          <span class="badge-off">${txtBadge}</span>
         </div>
         <a class="buy-btn" href="${p.link}" target="_blank" rel="noopener">Comprar agora →</a>
       </div>
