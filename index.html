@@ -43,14 +43,13 @@
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brand); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 16px; }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     
-    /* FILTROS COM FOTOS PROFISSIONAIS */
     .filters { display: flex; gap: 12px; margin-bottom: 2rem; flex-wrap: wrap; }
     
     .fbtn { 
       background: var(--card); 
       border: 1.5px solid var(--border); 
       color: var(--muted); 
-      padding: 8px 20px 8px 14px; /* Ajuste do espaçamento interno */
+      padding: 8px 20px 8px 14px; 
       border-radius: 30px; 
       font-size: 14px; 
       font-weight: 600; 
@@ -59,10 +58,9 @@
       transition: all .2s ease; 
       display: inline-flex;
       align-items: center;
-      gap: 10px; /* Espaço entre a foto e o texto */
+      gap: 10px; 
     }
     
-    /* Criando a bolinha da foto antes do texto */
     .fbtn::before {
       content: '';
       width: 26px;
@@ -76,7 +74,6 @@
       transition: all .2s ease;
     }
     
-    /* Links das fotos de cada categoria (Você pode trocar as URLs abaixo pelas que quiser) */
     .fbtn-all::before { background-image: url('https://img.icons8.com/color/96/grid.png'); }
     .fbtn-whey::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3050/3050047.png'); }
     .fbtn-creatina::before { background-image: url('https://cdn-icons-png.flaticon.com/512/2635/2635594.png'); }
@@ -84,8 +81,6 @@
     
     .fbtn:hover { border-color: var(--brand); color: var(--brand); }
     .fbtn.active { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 4px 12px rgba(200, 16, 46, 0.15); }
-    
-    /* Inverte a bordinha da imagem quando o botão estiver ativo para destacar */
     .fbtn.active::before { border-color: rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.2); }
     
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; }
@@ -220,8 +215,8 @@
 <script>
 const products = [
   { cat:'whey', nome:'Whey Protein Elite Pro 80%', desc:'80% de proteína concentrada por dose. Vários sabores disponíveis. Com laudo de qualidade aprovado.', preco: 270.00, precoDesconto: 250.00, link:'https://www.soldiersnutrition.com.br/collections/elite-whey-80?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/WheyElitePro80-ChocolateBelga-1kg_600x.jpg', fallback:'🥛' },
-  { cat:'creatina', nome:'Creatina Monohidratada 100% Pura 1kg', desc:'A mais vendida da marca. Pureza aprovada em laudos independentes. Aumenta força, explosão e massa magra.', preco:139.90, link:'https://www.soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/CreatinaMonohidratada1kg_600x.jpg', fallback:'💪' },
-  { cat:'pretreino', nome:'Pré-Treino Evolution Top', desc:'Cafeína + beta-alanina + arginina. Energia, foco e pump intenso para treinos de alto rendimento.', preco:129.90, link:'https://www.soldiersnutrition.com.br/collections/top-pre-treino?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/Pre-TreinoEvolution-Melancia-300g_600x.jpg', fallback:'⚡' },
+  { cat:'creatina', nome:'Creatina Monohidratada 100% Pura 1kg', desc:'A mais vendida da marca. Pureza aprovada em laudos independentes. Aumenta força, explosão e massa magra.', preco: 110.00, precoDesconto: 80.00, link:'https://www.soldiersnutrition.com.br/products/creatina-monohidratada-100-pura-importada-soldiers-nutrition-tamanho-1kg?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/CreatinaMonohidratada1kg_600x.jpg', fallback:'💪' },
+  { cat:'pretreino', nome:'Pré-Treino Evolution Top', desc:'Cafeína + beta-alanina + arginina. Energia, foco e pump intenso para treinos de alto rendimento.', preco: 79.90, precoDesconto: 55.00, link:'https://www.soldiersnutrition.com.br/collections/top-pre-treino?sca_ref=11357714.YQYjPUUn9Tv', img:'https://soldiersnutrition.com.br/cdn/shop/products/Pre-TreinoEvolution-Melancia-300g_600x.jpg', fallback:'⚡' },
 ];
 const catNames = { whey:'Whey Protein', creatina:'Creatina', pretreino:'Pré-treino' };
 let current = 'all';
@@ -231,6 +226,7 @@ function render() {
   document.getElementById('grid').innerHTML = list.map((p,i) => {
     const valorFinal = p.precoDesconto ? p.precoDesconto : (p.preco * 0.95);
     
+    // Calcula automaticamente a porcentagem real com base nos valores definidos acima
     const porcentagemDesconto = Math.round(((p.preco - valorFinal) / p.preco) * 100);
     const txtBadge = `-${porcentagemDesconto}%`;
     
